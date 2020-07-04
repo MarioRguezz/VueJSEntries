@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Ejemplo Vue JS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+    <div id="app-2">
+        <span v-bind:title="message">
+          Deja tu puntero sobre este texto unos segundos para ver dinámicamente un título
+        </span>
+      </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: '¡Hola Mundo con Vue JS!'
+            }
+            })
+        var app2 = new Vue({
+            el: '#app-2',
+            data: {
+                message: 'Cargaste esta página el ' + new Date().toLocaleString()
+            }
+            })
+    </script>
+</body>
+</html>
