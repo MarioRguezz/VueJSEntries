@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Ejemplo Vue JS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<body>
+    <div id="app">
+        <label> {{ info }} </label> 
+        <button v-on:click="sendData()">Consumir Lambda</button>
+    </div>
+    <script>
+            new Vue({
+            el: '#app',
+            data () {
+                return {
+                info: null
+                }
+            },
+            mounted () {
+            },
+            methods: {
+                sendData() {
+                    axios
+                    .get('https://avkg899xt2.execute-api.us-east-1.amazonaws.com/Prod/hello')
+                    .then(response => (this.info = response.data.message))
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>
